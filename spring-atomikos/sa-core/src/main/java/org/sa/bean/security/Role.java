@@ -15,6 +15,16 @@ public class Role implements Serializable {
 	
 	private String rolename;
 	
+	private String rolecode;
+	
+	public String getRolecode() {
+		return rolecode;
+	}
+
+	public void setRolecode(String rolecode) {
+		this.rolecode = rolecode;
+	}
+
 	private Set<Resource> resources = new HashSet<Resource>(0);
 
 	public Set<Resource> getResources() {

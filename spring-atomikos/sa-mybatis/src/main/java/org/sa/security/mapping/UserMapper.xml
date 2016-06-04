@@ -73,4 +73,11 @@
 	<select id="getAll" resultMap="BaseResultMap">
 		select USERID, USERNAME, PASSWORD from T_USER
 	</select>
+	
+	<select id="findRoleByUserId" parameterType="java.lang.Integer" resultType="org.sa.bean.security.Role">
+		select
+		ROLEID,ROLENAME,ROLECODE 
+		from T_ROLE where roleId in (SELECT roleId FROM T_USER_ROLE 
+		WHERE userId=#{userId})
+	</select>
 </mapper>

@@ -2,6 +2,7 @@ package org.sa.security.service;
 
 import java.util.List;
 
+import org.sa.bean.security.Role;
 import org.sa.bean.security.User;
 
 public interface UserService {
@@ -15,4 +16,6 @@ public interface UserService {
 	public void update(User user);
 	
 	public User getById(Integer userId);
+	
+	public Role findRoleByUserId(Integer userId);
 }

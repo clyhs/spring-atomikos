@@ -2,6 +2,7 @@ package org.sa.security.service;
 
 import java.util.List;
 
+import org.sa.bean.security.Role;
 import org.sa.bean.security.User;
 import org.sa.security.dao.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,12 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return (User) userMapper.getById(userId);
 	}
+
+	public Role findRoleByUserId(Integer userId) {
+		// TODO Auto-generated method stub
+		return userMapper.findRoleByUserId(userId);
+	}
+	
+	
 
 }

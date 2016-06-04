@@ -13,7 +13,7 @@
 		parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
-		from T_USER
+		from T_USER 
 		where USERID = #{userId,jdbcType=INTEGER}
 	</select>
 	<delete id="delete" parameterType="java.lang.Integer">

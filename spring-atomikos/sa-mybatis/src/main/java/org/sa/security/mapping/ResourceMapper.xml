@@ -2,84 +2,133 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.sa.security.dao.ResourceMapper">
 	<resultMap id="BaseResultMap" type="org.sa.bean.security.Resource">
-		<id column="ROLEID" property="roleId" jdbcType="INTEGER" />
-		<result column="ROLENAME" property="rolename" jdbcType="VARCHAR" />
+		<id column="RESCID" property="rescId" jdbcType="INTEGER" />
+		<result column="NAME" property="name" jdbcType="VARCHAR" />
+		<result column="PID" property="pId" jdbcType="INTEGER" />
+		<result column="TYPE" property="type" jdbcType="INTEGER" />
+		<result column="LEVEL" property="level" jdbcType="INTEGER" />
+		<result column="RESKEY" property="resKey" jdbcType="VARCHAR" />
+		<result column="RESURL" property="resUrl" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		ROLEID, ROLENAME ,ROLECODE 
+		RESCID, NAME ,PID , TYPE , LEVEL, RESKEY , RESURL 
 	</sql>
 	<select id="getById" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
-		from T_ROLE
-		where ROLEID = #{roleId,jdbcType=INTEGER}
+		from T_RESOURCE 
+		where RESCID = #{rescId,jdbcType=INTEGER}
 	</select>
 	<delete id="delete" parameterType="java.lang.Integer">
-		delete from T_ROLE
-		where ROLEID = #{roleId,jdbcType=INTEGER}
+		delete from T_RESOURCE
+		where RESCID = #{rescId,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="org.sa.bean.security.Role">
-		insert into T_ROLE (ROLEID, ROLENAME ,ROLECODE 
+	<insert id="insert" parameterType="org.sa.bean.security.Resource">
+		insert into T_RESOURCE (RESCID, NAME ,PID , TYPE , LEVEL, RESKEY , RESURL 
 		)
-		values (#{roleId,jdbcType=INTEGER}, #{rolename,jdbcType=VARCHAR},
-		#{rolecode,jdbcType=VARCHAR})
+		values (#{rescId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
+		#{pId,jdbcType=INTEGER},
+		#{type,jdbcType=INTEGER},
+		#{level,jdbcType=INTEGER},
+		#{resKey,jdbcType=VARCHAR},
+		#{resUrl,jdbcType=VARCHAR})
 	</insert>
-	<insert id="insertSelective" parameterType="org.sa.bean.security.Role">
-		insert into T_ROLE
+	<insert id="insertSelective" parameterType="org.sa.bean.security.Resource">
+		insert into T_RESOURCE
 		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="roleId != null">
-				ROLEID,
+			<if test="rescId != null">
+				RESCID,
 			</if>
-			<if test="rolename != null">
-				ROLENAME,
+			<if test="name != null">
+				NAME,
 			</if>
-			<if test="rolecode != null">
-				ROLECODE,
+			<if test="pId != null">
+				PID,
+			</if>
+			<if test="type != null">
+				TYPE,
+			</if>
+			<if test="level != null">
+				LEVEL,
+			</if>
+			<if test="resKey != null">
+				RESKEY,
+			</if>
+			<if test="resUrl != null">
+				RESURL,
 			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
-			<if test="roleId != null">
-				#{roleId,jdbcType=INTEGER},
+			<if test="rescId != null">
+				#{rescId,jdbcType=INTEGER},
 			</if>
-			<if test="rolename != null">
-				#{rolename,jdbcType=VARCHAR},
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
 			</if>
-			<if test="rolecode != null">
-				#{rolecode,jdbcType=VARCHAR},
+			<if test="pId != null">
+				#{pId,jdbcType=INTEGER},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=INTEGER},
+			</if>
+			<if test="level != null">
+				#{level,jdbcType=INTEGER},
+			</if>
+			<if test="resKey != null">
+				#{resKey,jdbcType=VARCHAR},
+			</if>
+			<if test="resUrl != null">
+				#{resUrl,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>
-	<update id="update" parameterType="org.sa.bean.security.Role">
-		update T_ROLE
+	<update id="update" parameterType="org.sa.bean.security.Resource">
+		update T_RESOURCE
 		<set>
-			<if test="rolename != null">
-				ROLENAME = #{rolename,jdbcType=VARCHAR},
+			<if test="name != null">
+				NAME = #{name,jdbcType=VARCHAR},
 			</if>
-			<if test="rolecode != null">
-				ROLECODE = #{rolecode,jdbcType=VARCHAR},
+			<if test="pId != null">
+				PID = #{pId,jdbcType=INTEGER},
+			</if>
+			<if test="type != null">
+				TYPE = #{type,jdbcType=INTEGER},
+			</if>
+			<if test="level != null">
+				LEVEL = #{level,jdbcType=INTEGER},
+			</if>
+			<if test="resKey != null">
+				RESKEY = #{resKey,jdbcType=VARCHAR},
+			</if>
+			<if test="resUrl != null">
+				RESURL = #{resUrl,jdbcType=VARCHAR},
 			</if>
 		</set>
-		where ROLEID = #{roleId,jdbcType=INTEGER}
+		where RESCID = #{rescId,jdbcType=INTEGER}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="org.sa.bean.security.Role">
-		update T_ROLE
-		set ROLENAME = #{rolename,jdbcType=VARCHAR},
-		set ROLECODE = #{rolecode,jdbcType=VARCHAR}
-		where ROLEID = #{roleId,jdbcType=INTEGER}
+	<update id="updateByPrimaryKey" parameterType="org.sa.bean.security.Resource">
+		update T_RESOURCE
+		set NAME = #{name,jdbcType=VARCHAR},
+		set PID = #{pId,jdbcType=INTEGER},
+		set TYPE = #{type,jdbcType=INTEGER},
+		set LEVEL = #{level,jdbcType=INTEGER},
+		set RESKEY = #{resKey,jdbcType=VARCHAR},
+		set RESURL = #{resUrl,jdbcType=VARCHAR}
+		where RESCID = #{rescId,jdbcType=INTEGER}
 	</update>
 
 	<select id="getAll" resultMap="BaseResultMap">
-		select ROLEID, ROLENAME,ROLECODE from T_ROLE
+		select RESCID, NAME,PID,TYPE,LEVEL,RESKEY,RESURL from T_RESOURCE
 	</select>
 	
 	
-	<insert id="insertUserRole" parameterType="org.sa.bean.security.UserRole">
-	insert into T_USER_ROLE(userId,roleId) values (#{userId},#{roleId})
+	<insert id="insertRoleResource" parameterType="org.sa.bean.security.RoleResource">
+	insert into T_ROLE_RESOURCE(roleId,rescId) values (#{roleId},#{rescId})
 	</insert>
 	
-	<delete id="deleteUserRole" parameterType="java.lang.Integer">
-	delete from T_USER_ROLE where user_id=#{userId}
+	<delete id="deleteRoleResource" parameterType="java.lang.Integer">
+	delete from T_ROLE_RESOURCE where roleId=#{roleId}
 	</delete>
 	
 	

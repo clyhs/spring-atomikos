@@ -2,7 +2,7 @@ package org.sa.module.demo.controller;
 
 import javax.annotation.Resource;
 
-import org.sa.demo.bean.Demo;
+import org.sa.bean.demo.Demo;
 //import org.sa.demo.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

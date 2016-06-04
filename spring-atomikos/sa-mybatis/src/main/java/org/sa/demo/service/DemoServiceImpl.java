@@ -2,7 +2,7 @@ package org.sa.demo.service;
 
 import java.util.List;
 
-import org.sa.demo.bean.Demo;
+import org.sa.bean.demo.Demo;
 import org.sa.demo.dao.DemoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

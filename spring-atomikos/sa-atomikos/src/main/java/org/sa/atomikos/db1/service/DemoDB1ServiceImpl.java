@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.sa.atomikos.bean.DemoDB1;
 import org.sa.atomikos.db1.dao.DemoDB1Mapper;
-import org.sa.demo.bean.Demo;
+import org.sa.bean.demo.Demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

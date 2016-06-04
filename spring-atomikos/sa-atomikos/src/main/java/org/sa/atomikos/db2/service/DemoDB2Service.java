@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.sa.atomikos.bean.DemoDB1;
 import org.sa.atomikos.bean.DemoDB2;
-import org.sa.demo.bean.Demo;
+import org.sa.bean.demo.Demo;
 
 public interface DemoDB2Service {
 

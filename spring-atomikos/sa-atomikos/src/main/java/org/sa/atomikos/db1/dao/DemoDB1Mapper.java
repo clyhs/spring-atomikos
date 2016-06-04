@@ -3,7 +3,7 @@ package org.sa.atomikos.db1.dao;
 import java.util.List;
 
 import org.sa.atomikos.bean.DemoDB1;
-import org.sa.demo.bean.Demo;
+import org.sa.bean.demo.Demo;
 
 public interface DemoDB1Mapper {
 

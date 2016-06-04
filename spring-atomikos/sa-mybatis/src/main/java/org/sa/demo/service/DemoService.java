@@ -2,7 +2,7 @@ package org.sa.demo.service;
 
 import java.util.List;
 
-import org.sa.demo.bean.Demo;
+import org.sa.bean.demo.Demo;
 
 public interface DemoService {
 

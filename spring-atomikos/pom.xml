@@ -374,5 +374,6 @@
 		<module>sa-core</module>
 		<module>sa-mybatis</module>
     <module>sa-atomikos</module>
-  </modules>
+    <module>sa-security</module>
+	</modules>
 </project>

@@ -1,4 +1,4 @@
-package org.sa.demo.bean;
+package org.sa.bean.demo;
 
 import java.io.Serializable;
 

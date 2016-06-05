@@ -20,23 +20,33 @@ public class UserController {
 	
 	@Autowired
 	private RoleService roleService;
+	
+	@RequestMapping("/module/security/user/index.html")
+	@ResponseBody
+	public String index()
+	{
+		return "user index";
+	}
 
 	@RequestMapping("/module/security/user/add.html")
 	@ResponseBody
 	public String add()
 	{
-		User user = new User();
-		user.setUserId(1);
-		user.setUsername("admin");
-		user.setPassword("123456");
-		userService.insert(user);
 		return "user add success";
 	}
 	
-	@RequestMapping("/module/security/user/1.json")
+	@RequestMapping("/module/security/user/delete.html")
 	@ResponseBody
-	public User getById(){
-		return userService.getById(1);
+	public String delete()
+	{
+		return "user delete success";
+	}
+	
+	@RequestMapping("/module/security/user/query.json")
+	@ResponseBody
+	public User query(){
+		//return userService.getById(1);
+		return userService.queryByUsername("admin");
 	}
 	
 	@RequestMapping("/module/security/user/selectuserrole.json")

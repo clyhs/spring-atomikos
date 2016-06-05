@@ -19,7 +19,7 @@ public class Resource implements Serializable {
 	
 	private Integer level;
 	
-	private Integer type;
+	private Integer type;//0:目录 1:菜单 2：按键
 	
 	private String resKey;
 	

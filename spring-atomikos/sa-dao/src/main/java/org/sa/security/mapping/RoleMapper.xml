@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.sa.security.dao.RoleMapper">
+	<resultMap id="BaseResultMap" type="org.sa.bean.security.Role">
+		<id column="ROLEID" property="roleId" jdbcType="INTEGER" />
+		<result column="ROLENAME" property="rolename" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		ROLEID, ROLENAME ,ROLECODE 
+	</sql>
+	<select id="getById" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from T_ROLE
+		where ROLEID = #{roleId,jdbcType=INTEGER}
+	</select>
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from T_ROLE
+		where ROLEID = #{roleId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="org.sa.bean.security.Role">
+		insert into T_ROLE (ROLEID, ROLENAME ,ROLECODE 
+		)
+		values (#{roleId,jdbcType=INTEGER}, #{rolename,jdbcType=VARCHAR},
+		#{rolecode,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="org.sa.bean.security.Role">
+		insert into T_ROLE
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="roleId != null">
+				ROLEID,
+			</if>
+			<if test="rolename != null">
+				ROLENAME,
+			</if>
+			<if test="rolecode != null">
+				ROLECODE,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="roleId != null">
+				#{roleId,jdbcType=INTEGER},
+			</if>
+			<if test="rolename != null">
+				#{rolename,jdbcType=VARCHAR},
+			</if>
+			<if test="rolecode != null">
+				#{rolecode,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="update" parameterType="org.sa.bean.security.Role">
+		update T_ROLE
+		<set>
+			<if test="rolename != null">
+				ROLENAME = #{rolename,jdbcType=VARCHAR},
+			</if>
+			<if test="rolecode != null">
+				ROLECODE = #{rolecode,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where ROLEID = #{roleId,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="org.sa.bean.security.Role">
+		update T_ROLE
+		set ROLENAME = #{rolename,jdbcType=VARCHAR},
+		set ROLECODE = #{rolecode,jdbcType=VARCHAR}
+		where ROLEID = #{roleId,jdbcType=INTEGER}
+	</update>
+
+	<select id="getAll" resultMap="BaseResultMap">
+		select ROLEID, ROLENAME,ROLECODE from T_ROLE
+	</select>
+	
+	
+	<insert id="insertUserRole" parameterType="org.sa.bean.security.UserRole">
+	insert into T_USER_ROLE(userId,roleId) values (#{userId},#{roleId})
+	</insert>
+	
+	<delete id="deleteUserRole" parameterType="java.lang.Integer">
+	delete from T_USER_ROLE where user_id=#{userId}
+	</delete>
+	
+	
+</mapper>

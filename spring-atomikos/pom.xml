@@ -17,6 +17,7 @@
 		<mortbay.jetty.version>6.1.8</mortbay.jetty.version>
 		<jackson.version>1.9.2</jackson.version>
 		<spring.version>3.2.1.RELEASE</spring.version>
+		<spring_security.version>3.1.4.RELEASE</spring_security.version>
 		<slf4j.version>1.6.4</slf4j.version>
 		
 		<hibernate.version>4.3.5.Final</hibernate.version>
@@ -120,6 +121,35 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-test</artifactId>
 				<version>${spring.version}</version>
+			</dependency>
+			
+			
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-config</artifactId>
+				<version>${spring_security.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-acl</artifactId>
+				<version>${spring_security.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-core</artifactId>
+				<version>${spring_security.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-taglibs</artifactId>
+				<version>${spring_security.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-web</artifactId>
+				<version>${spring_security.version}</version>
 			</dependency>
 
 			<!-- hibernate -->
@@ -380,5 +410,6 @@
 		<module>sa-mybatis</module>
     <module>sa-atomikos</module>
     <module>sa-security</module>
+    <module>sa-dao</module>
 	</modules>
 </project>

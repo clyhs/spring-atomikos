@@ -20,6 +20,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class MySecurityMetadataSource implements
 		FilterInvocationSecurityMetadataSource {
+	
+	private static boolean flag = false;
 
 	@Autowired
 	private ResourceService resourceService;
@@ -30,11 +32,16 @@ public class MySecurityMetadataSource implements
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public void reLoadResourceDefine(){
+		flag = true;
+		loadResourceDefine();
+	}
 
 	@PostConstruct
 	private void loadResourceDefine() {
 		System.err.println("-----------MySecurityMetadataSource loadResourceDefine ----------- ");
-		if (resourceMap == null) {
+		if (resourceMap == null ) {
 			resourceMap = new HashMap<String, Collection<ConfigAttribute>>();
 			List<Resource> resources = resourceService.getAll();
 			for (Resource resource : resources) {
@@ -49,6 +56,23 @@ public class MySecurityMetadataSource implements
 				
 				resourceMap.put(resource.getResUrl(), configAttributes);
 			}
+		}
+		if(flag){
+			resourceMap = new HashMap<String, Collection<ConfigAttribute>>();
+			List<Resource> resources = resourceService.getAll();
+			for (Resource resource : resources) {
+				Collection<ConfigAttribute> configAttributes = new ArrayList<ConfigAttribute>();
+				// TODO:ZZQ 通过资源名称来表示具体的权限 注意：必须"ROLE_"开头
+				// 关联代码：applicationContext-security.xml
+				// 关联代码：com.huaxin.security.MyUserDetailServiceImpl#obtionGrantedAuthorities
+				ConfigAttribute configAttribute = new SecurityConfig("ROLE_"
+						+ resource.getResKey());
+				System.out.println(resource.getResKey());
+				configAttributes.add(configAttribute);
+				
+				resourceMap.put(resource.getResUrl(), configAttributes);
+			}
+			flag = false;
 		}
 		
 		System.err.println("-----------"+resourceMap.size()+" ----------- ");

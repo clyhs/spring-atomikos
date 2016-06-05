@@ -82,4 +82,15 @@ public class MySecurityFilter extends AbstractSecurityInterceptor implements
 		return this.securityMetadataSource;
 	}
 
+	public MySecurityMetadataSource getSecurityMetadataSource() {
+		return securityMetadataSource;
+	}
+
+	public void setSecurityMetadataSource(
+			MySecurityMetadataSource securityMetadataSource) {
+		this.securityMetadataSource = securityMetadataSource;
+	}
+	
+	
+
 }

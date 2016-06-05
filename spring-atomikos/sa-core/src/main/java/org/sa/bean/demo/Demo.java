@@ -17,6 +17,8 @@ public class Demo implements Serializable {
     private Integer age;
 
     private String address;
+    
+    
 
 	public String getId() {
 		return id;

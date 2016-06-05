@@ -10,7 +10,9 @@
     <http pattern="/denied.jsp" security="none" />
     <http pattern="/error.jsp" security="none" />
     <http pattern="/module/main/autologin.html" security="none" />
-    <http pattern="/module/main/addrr.html" security="none" />
+    <http pattern="/module/main/test.json" security="none" />
+    
+    
     
     <http use-expressions="true" auto-config="false" 
         entry-point-ref="myAuthenticationEntryPoint" access-denied-page="/denied.jsp"  >

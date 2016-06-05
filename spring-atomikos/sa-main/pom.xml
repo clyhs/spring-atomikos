@@ -32,5 +32,9 @@
 			<groupId>org.spring.atomikos</groupId>
 			<artifactId>sa-dao</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.spring.atomikos</groupId>
+			<artifactId>sa-security</artifactId>
+		</dependency>
 	</dependencies>
 </project>

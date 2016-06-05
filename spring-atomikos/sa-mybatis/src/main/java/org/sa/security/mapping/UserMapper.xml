@@ -82,7 +82,7 @@
 	</select>
 	
 	<select id="queryByUsername" parameterType="String" resultType="org.sa.bean.security.User">
-	  select 
+	  select  
 	  <include refid="Base_Column_List"/> 
 	  from T_USER where username=#{username}
 	</select>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.spring.atomikos</groupId>
@@ -19,11 +20,11 @@
 		<spring.version>3.2.1.RELEASE</spring.version>
 		<spring_security.version>3.1.4.RELEASE</spring_security.version>
 		<slf4j.version>1.6.4</slf4j.version>
-		
+
 		<hibernate.version>4.3.5.Final</hibernate.version>
-		
+
 		<mybatis.version>3.1.1</mybatis.version>
-	    <mybatisspring.version>1.1.1</mybatisspring.version>
+		<mybatisspring.version>1.1.1</mybatisspring.version>
 
 
 	</properties>
@@ -31,7 +32,7 @@
 	<dependencyManagement>
 
 		<dependencies>
-		    <dependency>
+			<dependency>
 				<groupId>org.spring.atomikos</groupId>
 				<artifactId>sa-core</artifactId>
 				<version>${project.version}</version>
@@ -127,8 +128,8 @@
 				<artifactId>spring-test</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
-			
-			
+
+
 			<dependency>
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-config</artifactId>
@@ -144,13 +145,13 @@
 				<artifactId>spring-security-core</artifactId>
 				<version>${spring_security.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-taglibs</artifactId>
 				<version>${spring_security.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-web</artifactId>
@@ -413,8 +414,8 @@
 		<module>sa-webapp</module>
 		<module>sa-core</module>
 		<module>sa-mybatis</module>
-    <module>sa-atomikos</module>
-    <module>sa-security</module>
-    <module>sa-dao</module>
+		<module>sa-atomikos</module>
+		<module>sa-dao</module>
+		<module>sa-security</module>
 	</modules>
 </project>

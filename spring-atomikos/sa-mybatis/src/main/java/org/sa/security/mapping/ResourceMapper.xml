@@ -119,7 +119,7 @@
 	</update>
 
 	<select id="getAll" resultMap="BaseResultMap">
-		select RESCID, NAME,PID,TYPE,LEVEL,RESKEY,RESURL from T_RESOURCE
+		select RESCID, NAME,PID,TYPE,LEVEL,RESKEY,RESURL from T_RESOURCE 
 	</select>
 	
 	

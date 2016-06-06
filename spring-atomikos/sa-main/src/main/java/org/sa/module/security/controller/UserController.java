@@ -3,6 +3,7 @@ package org.sa.module.security.controller;
 import org.sa.bean.security.Role;
 import org.sa.bean.security.User;
 import org.sa.bean.security.UserRole;
+import org.sa.redis.RedisClient;
 import org.sa.redis.RedisClientTemplate;
 import org.sa.security.service.RoleService;
 import org.sa.security.service.UserService;
@@ -23,7 +24,7 @@ public class UserController {
 	private RoleService roleService;
 	
 	@Autowired
-	private RedisClientTemplate redisClientTemplate;
+	private RedisClient redisClient;
 	
 	@RequestMapping("/module/security/user/index.html")
 	@ResponseBody
@@ -39,6 +40,8 @@ public class UserController {
 		User user = new User();
 		user.setUserId(2);
 		user.setUsername("333");
+		
+		redisClient.putObjectWithExpire("user", user, 10000);
 		return "user add success";
 	}
 	
@@ -53,7 +56,7 @@ public class UserController {
 	@ResponseBody
 	public User query(){
 		//return userService.getById(1);
-		return userService.queryByUsername("admin");
+		return (User) redisClient.getObjectByKey("user", User.class);
 	}
 	
 	@RequestMapping("/module/security/user/selectuserrole.json")

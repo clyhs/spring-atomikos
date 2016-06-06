@@ -6,11 +6,7 @@ import org.springframework.stereotype.Component;
 import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
 
-/**
- *
- * @author zhangwei_david
- * @version $Id: RedisTemplate.java, v 0.1 2015年6月6日 下午6:21:26 zhangwei_david Exp $
- */
+
 @Component
 public class RedisExecuteTemplate {
 

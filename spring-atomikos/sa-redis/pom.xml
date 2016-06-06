@@ -9,28 +9,29 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>org.spring.atomikos</groupId>
-	<artifactId>sa-main</artifactId>
+	<artifactId>sa-redis</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sa-main</name>
+	<name>sa-redis</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
-		<!-- <dependency> <groupId>org.spring.atomikos</groupId> <artifactId>sa-atomikos</artifactId> 
-			</dependency> <dependency> <groupId>org.spring.atomikos</groupId> <artifactId>sa-mybatis</artifactId> 
-			</dependency> -->
 		<dependency>
 			<groupId>org.spring.atomikos</groupId>
 			<artifactId>sa-dao</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.spring.atomikos</groupId>
-			<artifactId>sa-redis</artifactId>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.7.2</version>
 		</dependency>
+		<!--  
 		<dependency>
-			<groupId>org.spring.atomikos</groupId>
-			<artifactId>sa-security</artifactId>
-		</dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>1.0.2.RELEASE</version>
+		</dependency>-->
+
 	</dependencies>
 </project>

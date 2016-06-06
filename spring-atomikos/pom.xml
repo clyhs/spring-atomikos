@@ -428,7 +428,7 @@
 		<module>sa-atomikos</module>
 		<module>sa-dao</module>
 		<module>sa-security</module>
-		<!-- <module>sa-dubbox</module> -->
+		<module>sa-dubbox</module> 
 		<module>sa-redis</module>
 	</modules>
 </project>

@@ -3,6 +3,7 @@ package org.sa.module.security.controller;
 import org.sa.bean.security.Role;
 import org.sa.bean.security.User;
 import org.sa.bean.security.UserRole;
+import org.sa.redis.RedisClientTemplate;
 import org.sa.security.service.RoleService;
 import org.sa.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class UserController {
 	@Autowired
 	private RoleService roleService;
 	
+	@Autowired
+	private RedisClientTemplate redisClientTemplate;
+	
 	@RequestMapping("/module/security/user/index.html")
 	@ResponseBody
 	public String index()
@@ -32,6 +36,9 @@ public class UserController {
 	@ResponseBody
 	public String add()
 	{
+		User user = new User();
+		user.setUserId(2);
+		user.setUsername("333");
 		return "user add success";
 	}
 	

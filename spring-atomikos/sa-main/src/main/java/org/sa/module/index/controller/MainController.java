@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 import org.sa.bean.demo.Test;
 import org.sa.bean.security.RoleResource;
 import org.sa.bean.security.User;
-import org.sa.dubbox.demo.TestService;
 import org.sa.security.MySecurityFilter;
 import org.sa.security.MySecurityMetadataSource;
 import org.sa.security.MyUserDetailService;

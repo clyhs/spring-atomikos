@@ -46,12 +46,7 @@ public class RedisExecuteTemplate {
         return null;
     }
 
-    /**
-     *
-     *
-     * @author zhangwei_david
-     * @version $Id: RedisExecuteTemplate.java, v 0.1 2015年6月6日 下午7:45:58 zhangwei_david Exp $
-     */
+    
     public interface ExecuteCallback {
 
         public Object command(ShardedJedis shardedJedis);

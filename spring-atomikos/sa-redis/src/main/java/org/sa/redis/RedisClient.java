@@ -1,4 +1,7 @@
 package org.sa.redis;
+
+import java.util.List;
+
 public interface RedisClient {
 
     /**
@@ -19,4 +22,12 @@ public interface RedisClient {
      * @return
      */
     public Object getObjectByKey(String key, Class<?> clazz);
+    
+    
+    public boolean deleteObjectByKey(String key);
+    
+    
+    public boolean putArrayWithExpire(String key,List<?> list,long expire);
+    
+    public List<?> getArrayWithExpire(String key,Class<?> clazz);
 }

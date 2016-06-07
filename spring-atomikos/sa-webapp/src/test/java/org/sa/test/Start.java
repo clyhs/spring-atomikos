@@ -33,9 +33,9 @@ public class Start {
             SocketConnector conn = new SocketConnector();
             String portVariable = System.getProperty("jetty.port");
             //int port = parsePort(portVariable);
-            int port = 8080;
+            int port = 8081;
             if(port <= 0)
-            	port = 8080;
+            	port = 8081;
             conn.setPort(port);
             conn.setAcceptQueueSize(100);
             conn.setMaxIdleTime(1000 * 60 * 60);

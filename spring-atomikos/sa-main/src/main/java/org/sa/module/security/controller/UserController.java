@@ -1,5 +1,8 @@
 package org.sa.module.security.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.sa.bean.security.Role;
 import org.sa.bean.security.User;
 import org.sa.bean.security.UserRole;
@@ -37,11 +40,13 @@ public class UserController {
 	@ResponseBody
 	public String add()
 	{
+		List<User> users = new ArrayList<User>();
 		User user = new User();
 		user.setUserId(2);
 		user.setUsername("333");
+		users.add(user);
 		
-		redisClient.putObjectWithExpire("user", user, 10000);
+		redisClient.putArrayWithExpire("userlist", users, 10000);
 		return "user add success";
 	}
 	
@@ -49,14 +54,15 @@ public class UserController {
 	@ResponseBody
 	public String delete()
 	{
-		return "user delete success";
+		redisClient.deleteObjectByKey("user");
+		return "delete ok";
 	}
 	
 	@RequestMapping("/module/security/user/query.json")
 	@ResponseBody
-	public User query(){
+	public List<User> query(){
 		//return userService.getById(1);
-		return (User) redisClient.getObjectByKey("user", User.class);
+		return (List<User>) redisClient.getArrayWithExpire("userlist", User.class);
 	}
 	
 	@RequestMapping("/module/security/user/selectuserrole.json")

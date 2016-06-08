@@ -10,8 +10,11 @@ import javax.ws.rs.Produces;
 import com.alibaba.dubbo.rpc.protocol.rest.support.ContentType;
 
 import org.sa.bean.demo.Test;
+import org.sa.bean.security.User;
 import org.sa.dubbox.demo.TestService;
 import org.sa.dubbox.rest.demo.api.TestRestService;
+import org.sa.security.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Path("test")
 @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_XML})
@@ -19,6 +22,9 @@ import org.sa.dubbox.rest.demo.api.TestRestService;
 public class TestRestServiceImpl implements TestRestService {
 	
 	private TestService testService;
+	
+	@Autowired
+	private UserService userService;
 
 	public void setTestService(TestService testService) {
 		this.testService = testService;
@@ -29,6 +35,13 @@ public class TestRestServiceImpl implements TestRestService {
 	public Test getTest(@PathParam("id") Long id/*, @Context HttpServletRequest request*/) {
 		// TODO Auto-generated method stub
 		return testService.getTest(1l);
+	}
+
+	@GET
+    @Path("{id : \\d+}")
+	public User getUser(@PathParam("id") Integer id) {
+		// TODO Auto-generated method stub
+		return userService.getById(1);
 	}
 
 }

@@ -38,7 +38,7 @@ public class TestRestServiceImpl implements TestRestService {
 	}
 
 	@GET
-    @Path("{id : \\d+}")
+    @Path("{user/id : \\d+}")
 	public User getUser(@PathParam("id") Integer id) {
 		// TODO Auto-generated method stub
 		return userService.getById(1);

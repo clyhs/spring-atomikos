@@ -26,10 +26,6 @@
 			<groupId>org.spring.atomikos</groupId>
 			<artifactId>sa-redis</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.spring.atomikos</groupId>
-			<artifactId>sa-security</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -107,7 +103,7 @@
 		<!-- 加载资源 -->
 		<resources>
 			<resource>
-				<targetPath>${project.build.directory}/classes</targetPath> <!-- 设置根路径,classes文件是源文件 -->
+				<targetPath>${project.build.directory}/</targetPath> <!-- 设置根路径,classes文件是源文件 -->
 				<directory>src/main/resources</directory>  <!-- 制定文件夹src/main/resources下面的文件移到根路径， src/main/resources 这个路径存放所有配置文件 -->
 				<filtering>true</filtering>
 				<includes>
@@ -120,8 +116,8 @@
 			<!-- 结合com.alibaba.dubbo.container.Main -->
 			<resource>
 				<!-- dubbo Main方法 默认读取/classes/META-INF/spring文件下的spring-context.xml文件，所以要将spring-context.xml文件移到该目录 -->
-				<targetPath>${project.build.directory}/META-INF/spring</targetPath>
-				<directory>src/main/resources/META-INF/spring</directory> <!-- 这是我存放spring-context.xml的路径 -->
+				<targetPath>${project.build.directory}/</targetPath>
+				<directory>src/main/resources/</directory> <!-- 这是我存放spring-context.xml的路径 -->
 				<filtering>true</filtering>
 				<includes>
 					<include>applicationContext-*.xml</include> <!-- 将 spring-context.xml 移到启动文件目录下 -->

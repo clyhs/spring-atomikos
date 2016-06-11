@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import redis.clients.jedis.ShardedJedis;
+import redis.clients.jedis.ShardedJedisPool;
 
 @Repository("redisClientTemplate")
 public class RedisClientTemplate {
@@ -17,6 +18,7 @@ public class RedisClientTemplate {
     public void disconnect() {
         ShardedJedis shardedJedis = redisDataSource.getRedisClient();
         shardedJedis.disconnect();
+        
     }
 
     /**
@@ -244,6 +246,28 @@ public class RedisClientTemplate {
         boolean broken = false;
         try {
             result = shardedJedis.getrange(key, startOffset, endOffset);
+
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            broken = true;
+        } finally {
+            redisDataSource.returnResource(shardedJedis, broken);
+        }
+        return result;
+    }
+    
+    public long publish(String key,String value){
+    	ShardedJedis shardedJedis = redisDataSource.getRedisClient();
+    	
+    	
+    	long result = 0;
+        if (shardedJedis == null) {
+            return result;
+        }
+        boolean broken = false;
+        try {
+            result = shardedJedis.lpush(key, value);
+            
 
         } catch (Exception e) {
             log.error(e.getMessage(), e);
